@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -368,6 +368,27 @@ export default function App() {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hideMobileLogo, setHideMobileLogo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+    const handleScroll = () => {
+      if (!mediaQuery.matches) {
+        setHideMobileLogo(false);
+        return;
+      }
+
+      setHideMobileLogo(window.scrollY > 24);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -391,8 +412,8 @@ function Header() {
             src={logoImage}
             alt="Dons Home Improvement Logo"
             className="h-24 w-auto object-contain sm:h-28 lg:hidden"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           />
 
           {/* Right: hamburger on mobile, desktop nav stays */}
