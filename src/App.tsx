@@ -372,7 +372,7 @@ function Header() {
   return (
     <>
       <header
-        className="fixed left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#071522]/90 backdrop-blur-xl"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Left: empty on mobile to balance centered logo */}
@@ -390,7 +390,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-48 w-auto object-contain lg:hidden"
+            className="h-24 w-auto object-contain sm:h-28 lg:hidden"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
