@@ -1,7 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  Menu,
   Bath,
   CheckCircle2,
   ChefHat,
@@ -13,6 +14,7 @@ import {
   Phone,
   ShieldCheck,
   Star,
+  X,
 } from "lucide-react";
 
 const heroImage = "https://i.imgur.com/j7W0zl4.jpeg";
@@ -365,51 +367,112 @@ export default function App() {
 }
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <motion.header
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.55, ease: "easeOut" }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#071522]/90 backdrop-blur-xl"
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-2 py-1 sm:px-3 md:px-5">
-        <div className="flex min-w-0 flex-1 items-center overflow-hidden">
+    <>
+      <motion.header
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#071522]/90 backdrop-blur-xl"
+      >
+        <div className="flex items-center justify-between px-4 py-3">
+          {/* Left: empty on mobile to balance centered logo */}
+          <div className="w-10 lg:hidden" />
+
+          {/* Center: logo — larger on mobile */}
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-24 w-auto max-w-[330px] object-contain sm:h-28 sm:max-w-[430px] md:h-36 md:max-w-[620px] lg:h-40 lg:max-w-[760px] xl:h-44 xl:max-w-[860px]"
+            className="h-16 w-auto object-contain md:h-20 lg:mx-0 lg:h-24 lg:w-auto"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
-        </div>
 
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-white/85 lg:flex">
-          {navLinks.map((link, index) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={index === 0 ? "text-[#d6a23a] transition hover:text-white" : "transition hover:text-[#d6a23a]"}
+          {/* Right: hamburger on mobile, desktop nav stays */}
+          <div className="flex items-center gap-4">
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-7 text-sm font-semibold text-white/85 lg:flex">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={index === 0 ? "text-[#d6a23a] transition hover:text-white" : "transition hover:text-[#d6a23a]"}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#estimate"
+                className="rounded-full bg-[#d6a23a] px-5 py-3 text-[#071522] shadow-lg transition hover:scale-[1.03] hover:bg-white"
+              >
+                Free Estimate
+              </a>
+            </nav>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d6a23a] text-[#071522] lg:hidden"
             >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#estimate"
-            className="rounded-full bg-[#d6a23a] px-5 py-3 text-[#071522] shadow-lg transition hover:scale-[1.03] hover:bg-white"
-          >
-            Free Estimate
-          </a>
-        </nav>
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </motion.header>
 
-        <a
-          href={officePhoneHref}
-          className="ml-2 hidden shrink-0 items-center gap-2 rounded-full border border-[#d6a23a]/40 bg-white/10 px-4 py-3 text-sm font-black text-white md:flex lg:hidden"
-        >
-          <Phone className="h-4 w-4 text-[#d6a23a]" />
-          Call
-        </a>
-      </div>
-    </motion.header>
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 flex flex-col bg-[#071522] pt-24"
+          >
+            <nav className="flex flex-col items-center gap-8 px-8 py-10">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-3xl font-black uppercase tracking-wide text-white transition hover:text-[#d6a23a]"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.06 }}
+                className="mt-4 flex flex-col gap-4"
+              >
+                <a
+                  href={officePhoneHref}
+                  className="flex items-center justify-center gap-3 rounded-2xl bg-[#d6a23a] px-8 py-4 text-lg font-black uppercase text-[#071522] shadow-2xl"
+                >
+                  <Phone className="h-6 w-6" />
+                  Call Now
+                </a>
+                <a
+                  href="#estimate"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-center gap-3 rounded-2xl border-2 border-[#d6a23a] px-8 py-4 text-lg font-black uppercase text-[#d6a23a]"
+                >
+                  Free Estimate
+                </a>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
