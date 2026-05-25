@@ -372,7 +372,7 @@ function Header() {
   return (
     <>
       <header
-        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#071522]/90 backdrop-blur-xl"
+        className="absolute left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Left: empty on mobile to balance centered logo */}
