@@ -393,7 +393,7 @@ function Header() {
   return (
     <>
       <header
-        className="fixed !important left-0 !important right-0 !important top-0 !important z-50 w-full overflow-hidden border-b border-transparent bg-transparent" style={{ transform: 'none' }}
+        className="fixed !important left-0 !important right-0 !important top-0 !important z-50 w-full overflow-hidden border-b border-transparent bg-transparent desktop-header" style={{ transform: 'none' }}
       >
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-3 lg:flex-row lg:justify-between lg:py-4">
           {/* Mobile: logo centered on its own row */}
