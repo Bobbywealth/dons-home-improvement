@@ -100,9 +100,9 @@ const highlights = [
 
 export default function App() {
   return (
-    <div className="min-h-screen scroll-smooth bg-[#f7f4ef] pb-24 text-slate-900 md:pb-0">
+    <div className="min-h-screen w-full overflow-x-hidden scroll-smooth bg-[#f7f4ef] pb-24 text-slate-900 md:pb-0">
       <Header />
-      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[7rem] sm:pt-[7rem] md:pt-40 lg:pt-80">
+      <section id="home" className="relative min-h-screen w-full overflow-hidden bg-[#071522] pt-[7rem] sm:pt-[7rem] md:pt-40 lg:pt-80">
         <div className="absolute inset-0">
           <motion.img
             src={heroImage}
@@ -116,7 +116,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#071522] via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[calc(100vh-112px)] max-w-7xl items-center px-4 py-10 sm:px-5 sm:py-14 md:min-h-[calc(100vh-160px)] md:py-20">
+        <div className="relative mx-auto flex w-full min-h-[calc(100vh-112px)] max-w-7xl items-center px-4 py-10 sm:px-5 sm:py-14 md:min-h-[calc(100vh-160px)] md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -393,7 +393,7 @@ function Header() {
   return (
     <>
       <header
-        className="absolute left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b-0 lg:bg-transparent lg:backdrop-blur-none"
+        className="absolute left-0 right-0 top-0 z-50 w-full overflow-hidden will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b-0 lg:bg-transparent lg:backdrop-blur-none"
       >
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:flex-col lg:justify-start lg:py-4">
           {/* Left: empty on mobile to balance centered logo */}
