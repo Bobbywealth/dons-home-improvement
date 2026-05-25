@@ -393,7 +393,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-16 w-auto object-contain lg:hidden"
+            className="h-48 w-auto object-contain lg:hidden"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
