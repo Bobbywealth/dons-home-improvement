@@ -375,7 +375,7 @@ function Header() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-[#071522]/80 backdrop-blur-xl lg:border-b lg:border-white/10 lg:bg-transparent lg:backdrop-blur-none"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Left: empty on mobile to balance centered logo */}
