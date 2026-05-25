@@ -403,7 +403,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="hidden lg:absolute lg:left-4 lg:top-1/2 lg:block lg:h-28 lg:w-auto lg:max-w-[300px] lg:-translate-y-1/2 lg:object-contain xl:h-32 xl:max-w-[360px]"
+            className="hidden lg:absolute lg:left-4 lg:top-1/2 lg:block lg:h-56 lg:w-auto lg:max-w-[600px] lg:-translate-y-1/2 lg:object-contain xl:h-64 xl:max-w-[720px]"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
@@ -411,7 +411,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-24 w-auto object-contain sm:h-28 lg:hidden"
+            className="h-48 w-auto object-contain sm:h-56 lg:hidden"
             animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
