@@ -377,7 +377,7 @@ function Header() {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#071522]/90 backdrop-blur-xl"
       >
-        <div className="flex items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Left: empty on mobile to balance centered logo */}
           <div className="w-10 lg:hidden" />
 
