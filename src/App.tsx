@@ -405,9 +405,31 @@ function Header() {
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
 
-          {/* Desktop: logo centered with phone + Free Estimate to the left */}
+          {/* Desktop: logo centered with phone + Free Estimate to the right */}
           <div className="hidden w-full items-center justify-center gap-6 lg:flex">
-            {/* Left side: phone + Free Estimate */}
+            {/* Left side: nav links */}
+            <nav className="flex items-center gap-8 text-sm font-bold text-white/90">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={index === 0 ? "text-[#d6a23a] transition hover:text-white" : "transition hover:text-[#d6a23a]"}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Centered logo */}
+            <motion.img
+              src={logoImage}
+              alt="Dons Home Improvement Logo"
+              className="h-48 w-auto max-w-[400px] object-contain xl:h-56 xl:max-w-[480px]"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            />
+
+            {/* Right side: phone + Free Estimate */}
             <div className="flex items-center gap-4">
               <a
                 href={officePhoneHref}
@@ -423,28 +445,6 @@ function Header() {
                 Free Estimate
               </a>
             </div>
-
-            {/* Centered logo */}
-            <motion.img
-              src={logoImage}
-              alt="Dons Home Improvement Logo"
-              className="h-48 w-auto max-w-[400px] object-contain xl:h-56 xl:max-w-[480px]"
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
-            />
-
-            {/* Right side: nav links */}
-            <nav className="flex items-center gap-8 text-sm font-bold text-white/90">
-              {navLinks.map((link, index) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={index === 0 ? "text-[#d6a23a] transition hover:text-white" : "transition hover:text-[#d6a23a]"}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
           </div>
 
           {/* Mobile hamburger */}
