@@ -396,18 +396,7 @@ function Header() {
         className="absolute left-0 right-0 top-0 z-50 w-full overflow-hidden will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b-0 lg:bg-[#071522]/95 lg:backdrop-blur-md"
       >
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:flex-col lg:justify-start lg:py-4">
-          {/* Left: empty on mobile to balance centered logo */}
-          <div className="w-10 lg:hidden" />
-
-          {/* Desktop logo */}
-          <motion.img
-            src={logoImage}
-            alt="Dons Home Improvement Logo"
-            className="hidden lg:block lg:h-48 lg:w-auto lg:max-w-[520px] lg:object-contain xl:h-56 xl:max-w-[640px]"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 260, damping: 18 }}
-          />
-          {/* Mobile logo: centered, slightly larger */}
+          {/* Mobile: logo centered */}
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
@@ -416,10 +405,36 @@ function Header() {
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
 
-          {/* Right: hamburger on mobile, desktop nav stays */}
-          <div className="flex items-center gap-4">
-            {/* Desktop nav */}
-            <nav className="hidden items-center justify-center gap-10 text-lg font-bold text-white/90 lg:flex">
+          {/* Desktop: logo centered with phone + Free Estimate to the left */}
+          <div className="hidden w-full items-center justify-center gap-6 lg:flex">
+            {/* Left side: phone + Free Estimate */}
+            <div className="flex items-center gap-4">
+              <a
+                href={officePhoneHref}
+                className="flex items-center gap-2 text-sm font-bold text-white/90 hover:text-[#d6a23a]"
+              >
+                <Phone className="h-4 w-4 text-[#d6a23a]" />
+                (845) 858-2555
+              </a>
+              <a
+                href="#estimate"
+                className="rounded-full bg-[#d6a23a] px-5 py-3 text-sm font-bold text-[#071522] shadow-lg transition hover:scale-[1.03] hover:bg-white"
+              >
+                Free Estimate
+              </a>
+            </div>
+
+            {/* Centered logo */}
+            <motion.img
+              src={logoImage}
+              alt="Dons Home Improvement Logo"
+              className="h-48 w-auto max-w-[400px] object-contain xl:h-56 xl:max-w-[480px]"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            />
+
+            {/* Right side: nav links */}
+            <nav className="flex items-center gap-8 text-sm font-bold text-white/90">
               {navLinks.map((link, index) => (
                 <a
                   key={link.href}
@@ -429,23 +444,17 @@ function Header() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#estimate"
-                className="rounded-full bg-[#d6a23a] px-5 py-3 text-[#071522] shadow-lg transition hover:scale-[1.03] hover:bg-white"
-              >
-                Free Estimate
-              </a>
             </nav>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d6a23a] text-[#071522] lg:hidden"
-            >
-              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            className="absolute right-4 top-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#d6a23a] text-[#071522] lg:hidden"
+          >
+            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </header>
 
