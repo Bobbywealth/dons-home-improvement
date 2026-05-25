@@ -102,7 +102,7 @@ export default function App() {
   return (
     <div className="min-h-screen scroll-smooth bg-[#f7f4ef] pb-24 text-slate-900 md:pb-0">
       <Header />
-      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[26rem] sm:pt-[26rem] md:pt-40 lg:pt-80">
+      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[14rem] sm:pt-[14rem] md:pt-40 lg:pt-80">
         <div className="absolute inset-0">
           <motion.img
             src={heroImage}
@@ -411,7 +411,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-80 w-auto object-contain sm:h-80 lg:hidden"
+            className="h-48 w-auto object-contain sm:h-56 lg:hidden"
             animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
