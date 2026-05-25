@@ -408,7 +408,7 @@ function Header() {
           {/* Desktop: logo centered with phone + Free Estimate to the right */}
           <div className="hidden w-full items-center justify-center gap-6 lg:flex">
             {/* Left side: nav links */}
-            <nav className="flex items-center gap-8 text-sm font-bold text-white/90">
+            <nav className="flex items-center gap-8 text-base font-bold text-white shadow-lg shadow-black/20">
               {navLinks.map((link, index) => (
                 <a
                   key={link.href}
@@ -430,7 +430,7 @@ function Header() {
             />
 
             {/* Right side: phone + Free Estimate */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 shadow-lg shadow-black/20">
               <a
                 href={officePhoneHref}
                 className="flex items-center gap-2 text-sm font-bold text-white/90 hover:text-[#d6a23a]"
