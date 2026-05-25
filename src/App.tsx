@@ -403,7 +403,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="hidden lg:block lg:h-56 lg:w-auto lg:max-w-[600px] lg:object-contain xl:h-64 xl:max-w-[720px]"
+            className="hidden lg:block lg:h-48 lg:w-auto lg:max-w-[520px] lg:object-contain xl:h-56 xl:max-w-[640px]"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
