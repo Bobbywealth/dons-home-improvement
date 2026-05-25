@@ -371,11 +371,8 @@ function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent backdrop-blur-none lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
+      <header
+        className="fixed left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Left: empty on mobile to balance centered logo */}
@@ -429,7 +426,7 @@ function Header() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile menu overlay */}
       <AnimatePresence>
