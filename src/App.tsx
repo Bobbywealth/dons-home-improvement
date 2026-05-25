@@ -395,15 +395,17 @@ function Header() {
       <header
         className="fixed !important left-0 !important right-0 !important top-0 !important z-50 w-full overflow-hidden border-b border-transparent bg-transparent" style={{ transform: 'none' }}
       >
-        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:flex-col lg:justify-start lg:py-4">
-          {/* Mobile: logo centered */}
-          <motion.img
-            src={logoImage}
-            alt="Dons Home Improvement Logo"
-            className="h-48 w-auto object-contain sm:h-56 lg:hidden"
-            animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-3 lg:flex-row lg:justify-between lg:py-4">
+          {/* Mobile: logo centered on its own row */}
+          <div className="flex w-full items-center justify-center lg:hidden">
+            <motion.img
+              src={logoImage}
+              alt="Dons Home Improvement Logo"
+              className="h-48 w-auto object-contain sm:h-56"
+              animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            />
+          </div>
 
           {/* Desktop: logo centered with phone + Free Estimate to the right */}
           <div className="hidden w-full items-center justify-center gap-6 lg:flex">
