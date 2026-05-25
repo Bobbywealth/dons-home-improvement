@@ -381,11 +381,19 @@ function Header() {
           {/* Left: empty on mobile to balance centered logo */}
           <div className="w-10 lg:hidden" />
 
-          {/* Center: logo — larger on mobile */}
+          {/* Desktop logo */}
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-16 w-auto object-contain md:h-20 lg:mx-0 lg:h-24 lg:w-auto"
+            className="hidden lg:block h-24 w-auto max-w-[330px] object-contain sm:h-28 sm:max-w-[430px] md:h-36 md:max-w-[620px] lg:h-40 lg:max-w-[760px] xl:h-44 xl:max-w-[860px]"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+          />
+          {/* Mobile logo: centered, slightly larger */}
+          <motion.img
+            src={logoImage}
+            alt="Dons Home Improvement Logo"
+            className="h-16 w-auto object-contain lg:hidden"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
