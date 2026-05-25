@@ -369,6 +369,7 @@ export default function App() {
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hideMobileLogo, setHideMobileLogo] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1023px)");
@@ -376,6 +377,7 @@ function Header() {
     const handleScroll = () => {
       if (!mediaQuery.matches) {
         setHideMobileLogo(false);
+        setScrolled(window.scrollY > 80);
         return;
       }
 
@@ -393,7 +395,7 @@ function Header() {
   return (
     <>
       <header
-        className="fixed !important left-0 !important right-0 !important top-0 !important z-50 w-full overflow-hidden border-b border-transparent bg-transparent desktop-header" style={{ transform: 'none' }}
+        className={`fixed !important left-0 !important right-0 !important top-0 !important z-50 w-full overflow-hidden border-b border-transparent desktop-header ${scrolled ? 'bg-[#071522]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`} style={{ transform: 'none' }}
       >
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-3 lg:flex-row lg:justify-between lg:py-4">
           {/* Mobile: logo centered on its own row */}
