@@ -420,13 +420,11 @@ function Header() {
               ))}
             </nav>
 
-            {/* Centered logo */}
-            <motion.img
+            {/* Centered logo - no motion to avoid fixed positioning issues */}
+            <img
               src={logoImage}
               alt="Dons Home Improvement Logo"
-              className="h-48 w-auto max-w-[400px] object-contain xl:h-56 xl:max-w-[480px]"
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+              className="h-48 w-auto max-w-[400px] object-contain xl:h-56 xl:max-w-[480px] hover:scale-[1.03] transition-transform duration-300"
             />
 
             {/* Right side: phone + Free Estimate */}
