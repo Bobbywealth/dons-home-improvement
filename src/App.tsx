@@ -102,7 +102,7 @@ export default function App() {
   return (
     <div className="min-h-screen scroll-smooth bg-[#f7f4ef] pb-24 text-slate-900 md:pb-0">
       <Header />
-      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[14rem] sm:pt-[14rem] md:pt-40 lg:pt-80">
+      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[10rem] sm:pt-[10rem] md:pt-40 lg:pt-80">
         <div className="absolute inset-0">
           <motion.img
             src={heroImage}
