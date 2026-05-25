@@ -393,9 +393,9 @@ function Header() {
   return (
     <>
       <header
-        className="absolute left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b lg:border-white/10 lg:bg-[#071522]/90 lg:backdrop-blur-xl"
+        className="absolute left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b-0 lg:bg-transparent lg:backdrop-blur-none"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:justify-center">
           {/* Left: empty on mobile to balance centered logo */}
           <div className="w-10 lg:hidden" />
 
@@ -403,7 +403,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="hidden lg:block h-24 w-auto max-w-[330px] object-contain sm:h-28 sm:max-w-[430px] md:h-36 md:max-w-[620px] lg:h-40 lg:max-w-[760px] xl:h-44 xl:max-w-[860px]"
+            className="hidden lg:absolute lg:left-4 lg:top-1/2 lg:block lg:h-28 lg:w-auto lg:max-w-[300px] lg:-translate-y-1/2 lg:object-contain xl:h-32 xl:max-w-[360px]"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
@@ -419,7 +419,7 @@ function Header() {
           {/* Right: hamburger on mobile, desktop nav stays */}
           <div className="flex items-center gap-4">
             {/* Desktop nav */}
-            <nav className="hidden items-center gap-7 text-sm font-semibold text-white/85 lg:flex">
+            <nav className="hidden items-center justify-center gap-10 text-lg font-bold text-white/90 lg:flex">
               {navLinks.map((link, index) => (
                 <a
                   key={link.href}
