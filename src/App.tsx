@@ -411,7 +411,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-96 w-auto object-contain sm:h-96 lg:hidden"
+            className="h-[500px] w-auto object-contain sm:h-[500px] lg:hidden"
             animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
