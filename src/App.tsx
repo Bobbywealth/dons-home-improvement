@@ -102,7 +102,7 @@ export default function App() {
   return (
     <div className="min-h-screen scroll-smooth bg-[#f7f4ef] pb-24 text-slate-900 md:pb-0">
       <Header />
-      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-28 sm:pt-32 md:pt-40">
+      <section id="home" className="relative min-h-screen overflow-hidden bg-[#071522] pt-[26rem] sm:pt-[26rem] md:pt-40 lg:pt-80">
         <div className="absolute inset-0">
           <motion.img
             src={heroImage}
@@ -395,7 +395,7 @@ function Header() {
       <header
         className="absolute left-0 right-0 top-0 z-50 will-change-transform border-b border-transparent bg-transparent backdrop-blur-none lg:fixed lg:border-b-0 lg:bg-transparent lg:backdrop-blur-none"
       >
-        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:justify-center">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:flex-col lg:justify-start lg:py-4">
           {/* Left: empty on mobile to balance centered logo */}
           <div className="w-10 lg:hidden" />
 
@@ -403,7 +403,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="hidden lg:absolute lg:left-4 lg:top-1/2 lg:block lg:h-56 lg:w-auto lg:max-w-[600px] lg:-translate-y-1/2 lg:object-contain xl:h-64 xl:max-w-[720px]"
+            className="hidden lg:block lg:h-56 lg:w-auto lg:max-w-[600px] lg:object-contain xl:h-64 xl:max-w-[720px]"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           />
@@ -411,7 +411,7 @@ function Header() {
           <motion.img
             src={logoImage}
             alt="Dons Home Improvement Logo"
-            className="h-48 w-auto object-contain sm:h-56 lg:hidden"
+            className="h-96 w-auto object-contain sm:h-96 lg:hidden"
             animate={{ opacity: hideMobileLogo ? 0 : 1, y: hideMobileLogo ? -12 : 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           />
